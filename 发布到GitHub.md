@@ -1,6 +1,6 @@
 ﻿# 把 my-site 发布到 GitHub（中文步骤）
 
-站点已经做好，**22 次提交**已经推到 github.com/Goodray111/AgnB666 了。
+站点已经做好，**23 次提交**已经推到 github.com/Goodray111/AgnB666 了。
 现在只差最后一步：推到 `github.com/Goodray111/AgnB666` 并把 GitHub Pages 打开。
 
 因为你的电脑上没有任何 GitHub 凭据，我没有替你推送。两种方式，选一种。
@@ -132,6 +132,7 @@ Short description 可以直接用：
 **Pages 显示 404** — 先确认 Pages 的 Source 是 `main` + `/ (root)`；再确认仓库根目录有 `index.html`（有，就在根目录）。
 
 **页面样式丢了** — 检查仓库里是否有 `css/style.css`、`js/`、`images/`；`git add -A` 时它们必须被提交进去。
+
 
 
 
