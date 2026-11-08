@@ -1,20 +1,328 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Quotes — Learning the Web</title>
-  <meta name="description" content="Quotes about learning, craft and the web.">
+  <meta name="description" content="Eighteen quotes about learning, craft and the web, with search, theme filters and a random quote.">
+  <meta name="author" content="Goodray">
+  <meta name="theme-color" content="#0f172a">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Learning the Web">
+  <meta property="og:title" content="Quotes — Learning the Web">
+  <meta property="og:description" content="Eighteen quotes about learning, craft and the web, with search, theme filters and a random quote.">
+  <meta property="og:url" content="https://goodray111.github.io/my-site/quotes.html">
+  <meta property="og:image" content="https://goodray111.github.io/my-site/images/cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="images/icons/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
+  <script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
+  <link rel="preload" href="css/style.css" as="style">
   <link rel="stylesheet" href="css/style.css">
   <script defer src="js/nav.js"></script>
 </head>
-<body>
-  <nav id="site-nav" class="site-nav" aria-label="Main"></nav>
-<main id="main" class="wrap"><h1>Quotes</h1><p>Coming next: the quotes I want to keep.</p></main>
+<body data-page="quotes">
+  <a class="skip-link skip-link--static" href="#main">Skip to content</a>
+
+  <!-- Navigation is written once in nav.html and injected by js/nav.js -->
+  <nav id="site-nav" class="site-nav" aria-label="Main">
+    <noscript>
+      <div class="wrap nav-fallback">
+        <a class="brand" href="index.html"><span class="brand-mark">&lt;/&gt;</span> Learning the Web</a>
+        <ul class="nav-menu is-open">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="quotes.html">Quotes</a></li>
+          <li><a href="project.html">Ideas</a></li>
+          <li><a href="machine.html">Machine</a></li>
+        </ul>
+      </div>
+    </noscript>
+  </nav>
+
+<main id="main" class="wrap">
+
+  <header class="page-head">
+    <p class="eyebrow">02 · Quotes</p>
+    <h1>Eighteen quotes worth keeping</h1>
+    <p class="lede">Things about learning, craft and the web that I copied into a notebook and did not want to lose.
+      Search them by word, filter them by theme, or let the page pick one for you.</p>
+  </header>
+
+  <section class="random-quote" aria-labelledby="random-title">
+    <div class="random-card">
+      <p class="card-kicker" id="random-title">Random quote</p>
+      <blockquote class="random-text">
+        <p id="random-quote">Press the button. The page will choose one of the eighteen.</p>
+      </blockquote>
+      <p class="random-author" id="random-author">— not chosen yet</p>
+      <button class="btn btn-primary" id="random-btn" type="button">Give me a quote</button>
+    </div>
+    <p class="random-note">Same code as the filter below — it reads the quotes straight out of the page, so there is no second copy to keep in sync.</p>
+  </section>
+
+  <section class="section" aria-labelledby="all-quotes-title">
+    <div class="section-head section-head--row">
+      <div>
+        <h2 id="all-quotes-title">All eighteen</h2>
+        <p id="quote-count" class="count" aria-live="polite">18 quotes</p>
+      </div>
+      <div class="tools">
+        <label class="field">
+          <span>Search</span>
+          <input type="search" id="quote-search" placeholder="try “web” or “learn”" autocomplete="off">
+        </label>
+        <div class="chips" role="group" aria-label="Filter by theme">
+          <button class="chip is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="chip" type="button" data-filter="Craft" aria-pressed="false">Craft</button>
+          <button class="chip" type="button" data-filter="Learning" aria-pressed="false">Learning</button>
+          <button class="chip" type="button" data-filter="The Web" aria-pressed="false">The Web</button>
+        </div>
+      </div>
+    </div>
+
+    <p class="empty" id="quote-empty" hidden>No quote matches that. Try a shorter word.</p>
+
+    <div class="quote-grid" id="quote-grid">
+      <article class="quote" data-theme="craft" data-text="the best way to predict the future is to invent it." data-author="alan kay">
+        <blockquote>
+          <p>The best way to predict the future is to invent it.</p>
+        </blockquote>
+        <footer class="quote-meta">
+          <cite>Alan Kay</cite>
+          <span class="quote-source">computer scientist</span>
+          <span class="pill pill--craft">Craft</span>
+        </footer>
+      </article>
+      <article class="quote" data-theme="craft" data-text="simplicity is prerequisite for reliability." data-author="edsger w. dijkstra">
+        <blockquote>
+          <p>Simplicity is prerequisite for reliability.</p>
+        </blockquote>
+        <footer class="quote-meta">
+          <cite>Edsger W. Dijkstra</cite>
+          <span class="quote-source">computer scientist</span>
+          <span class="pill pill--craft">Craft</span>
+        </footer>
+      </article>
+      <article class="quote" data-theme="craft" data-text="programs must be written for people to read, and only incidentally for machines to execute." data-author="harold abelson">
+        <blockquote>
+          <p>Programs must be written for people to read, and only incidentally for machines to execute.</p>
+        </blockquote>
+        <footer class="quote-meta">
+          <cite>Harold Abelson</cite>
+          <span class="quote-source">Structure and Interpretation of Computer Programs</span>
+          <span class="pill pill--craft">Craft</span>
+        </footer>
+      </article>
+      <article class="quote" data-theme="craft" data-text="any fool can write code that a computer can understand. good programmers write code that humans can understand." data-author="martin fowler">
+        <blockquote>
+          <p>Any fool can write code that a computer can understand. Good programmers write code that humans can understand.</p>
+        </blockquote>
+        <footer class="quote-meta">
+          <cite>Martin Fowler</cite>
+          <span class="quote-source">Refactoring</span>
+          <span class="pill pill--craft">Craft</span>
+        </footer>
+      </article>
+      <article class="quote" data-theme="craft" data-text="make it work, make it right, make it fast." data-author="kent beck">
+        <blockquote>
+          <p>Make it work, make it right, make it fast.</p>
+        </blockquote>
+        <footer class="quote-meta">
+          <cite>Kent Beck</cite>
+          <span class="quote-source">software engineer</span>
+          <span class="pill pill--craft">Craft</span>
+        </footer>
+      </article>
+      <article class="quote" data-theme="craft" data-text="first, solve the problem. then, write the code." data-author="john johnson">
+        <blockquote>
+          <p>First, solve the problem. Then, write the code.</p>
+        </blockquote>
+        <footer class="quote-meta">
+          <cite>John Johnson</cite>
+          <span class="quote-source">software engineer</span>
+          <span class="pill pill--craft">Craft</span>
+        </footer>
+      </article>
+      <article class="quote" data-theme="the-web" data-text="the web is more a social creation than a technical one." data-author="tim berners-lee">
+        <blockquote>
+          <p>The web is more a social creation than a technical one.</p>
+        </blockquote>
+        <footer class="quote-meta">
+          <cite>Tim Berners-Lee</cite>
+          <span class="quote-source">Weaving the Web</span>
+          <span class="pill pill--the-web">The Web</span>
+        </footer>
+      </article>
+      <article class="quote" data-theme="the-web" data-text="this is for everyone." data-author="tim berners-lee">
+        <blockquote>
+          <p>This is for everyone.</p>
+        </blockquote>
+        <footer class="quote-meta">
+          <cite>Tim Berners-Lee</cite>
+          <span class="quote-source">London 2012 opening ceremony</span>
+          <span class="pill pill--the-web">The Web</span>
+        </footer>
+      </article>
+      <article class="quote" data-theme="the-web" data-text="the power of the web is in its universality." data-author="tim berners-lee">
+        <blockquote>
+          <p>The power of the Web is in its universality.</p>
+        </blockquote>
+        <footer class="quote-meta">
+          <cite>Tim Berners-Lee</cite>
+          <span class="quote-source">statement on web accessibility</span>
+          <span class="pill pill--the-web">The Web</span>
+        </footer>
+      </article>
+      <article class="quote" data-theme="learning" data-text="the best way to learn is to build something small and finish it." data-author="anonymous student">
+        <blockquote>
+          <p>The best way to learn is to build something small and finish it.</p>
+        </blockquote>
+        <footer class="quote-meta">
+          <cite>Anonymous student</cite>
+          <span class="quote-source">note in my notebook</span>
+          <span class="pill pill--learning">Learning</span>
+        </footer>
+      </article>
+      <article class="quote" data-theme="learning" data-text="you do not understand something until you can explain it to someone else." data-author="anonymous student">
+        <blockquote>
+          <p>You do not understand something until you can explain it to someone else.</p>
+        </blockquote>
+        <footer class="quote-meta">
+          <cite>Anonymous student</cite>
+          <span class="quote-source">note in my notebook</span>
+          <span class="pill pill--learning">Learning</span>
+        </footer>
+      </article>
+      <article class="quote" data-theme="learning" data-text="slow is smooth, and smooth is fast." data-author="anonymous">
+        <blockquote>
+          <p>Slow is smooth, and smooth is fast.</p>
+        </blockquote>
+        <footer class="quote-meta">
+          <cite>Anonymous</cite>
+          <span class="quote-source">workshop saying</span>
+          <span class="pill pill--learning">Learning</span>
+        </footer>
+      </article>
+      <article class="quote" data-theme="the-web" data-text="content precedes design. design in the absence of content is not design, it is decoration." data-author="jeffrey zeldman">
+        <blockquote>
+          <p>Content precedes design. Design in the absence of content is not design, it is decoration.</p>
+        </blockquote>
+        <footer class="quote-meta">
+          <cite>Jeffrey Zeldman</cite>
+          <span class="quote-source">web designer</span>
+          <span class="pill pill--the-web">The Web</span>
+        </footer>
+      </article>
+      <article class="quote" data-theme="the-web" data-text="design is not just what it looks like and feels like. design is how it works." data-author="steve jobs">
+        <blockquote>
+          <p>Design is not just what it looks like and feels like. Design is how it works.</p>
+        </blockquote>
+        <footer class="quote-meta">
+          <cite>Steve Jobs</cite>
+          <span class="quote-source">interview, 2003</span>
+          <span class="pill pill--the-web">The Web</span>
+        </footer>
+      </article>
+      <article class="quote" data-theme="craft" data-text="everything should be made as simple as possible, but not simpler." data-author="albert einstein">
+        <blockquote>
+          <p>Everything should be made as simple as possible, but not simpler.</p>
+        </blockquote>
+        <footer class="quote-meta">
+          <cite>Albert Einstein</cite>
+          <span class="quote-source">attributed</span>
+          <span class="pill pill--craft">Craft</span>
+        </footer>
+      </article>
+      <article class="quote" data-theme="learning" data-text="the only way to do great work is to love what you do." data-author="steve jobs">
+        <blockquote>
+          <p>The only way to do great work is to love what you do.</p>
+        </blockquote>
+        <footer class="quote-meta">
+          <cite>Steve Jobs</cite>
+          <span class="quote-source">Stanford commencement, 2005</span>
+          <span class="pill pill--learning">Learning</span>
+        </footer>
+      </article>
+      <article class="quote" data-theme="learning" data-text="tell me and i forget. teach me and i remember. involve me and i learn." data-author="benjamin franklin">
+        <blockquote>
+          <p>Tell me and I forget. Teach me and I remember. Involve me and I learn.</p>
+        </blockquote>
+        <footer class="quote-meta">
+          <cite>Benjamin Franklin</cite>
+          <span class="quote-source">attributed</span>
+          <span class="pill pill--learning">Learning</span>
+        </footer>
+      </article>
+      <article class="quote" data-theme="the-web" data-text="a user interface is like a joke. if you have to explain it, it is not that good." data-author="martin leblanc">
+        <blockquote>
+          <p>A user interface is like a joke. If you have to explain it, it is not that good.</p>
+        </blockquote>
+        <footer class="quote-meta">
+          <cite>Martin LeBlanc</cite>
+          <span class="quote-source">designer</span>
+          <span class="pill pill--the-web">The Web</span>
+        </footer>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="why-title">
+    <div class="section-head">
+      <h2 id="why-title">Why a quotes page</h2>
+      <p>The brief asked for fifteen quotes. It is a good exercise for one reason: it is a list that has to be
+        readable, searchable and pleasant, without a database or a framework. Everything here is in the HTML.</p>
+    </div>
+    <div class="note-grid">
+      <div class="note">
+        <h3>Written for the page</h3>
+        <p>Each quote is a <code>blockquote</code> with a <code>cite</code> and a source line. The markup carries the meaning; the styling just helps.</p>
+      </div>
+      <div class="note">
+        <h3>Filtered in the browser</h3>
+        <p>The search box and the theme chips filter the same elements. No network request, no reload, and the count updates as you type.</p>
+      </div>
+      <div class="note">
+        <h3>One random quote</h3>
+        <p>The button picks from the same list and writes the result into the card above. If JavaScript is off, all eighteen are still there to read.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
   <footer class="site-foot">
-    <div class="wrap">
-      <p><strong>Learning the Web</strong> — a course project for Web Technologies, 2026.</p>
+    <div class="wrap foot-grid">
+      <div>
+        <p class="foot-brand"><span class="brand-mark" aria-hidden="true">&lt;/&gt;</span> Learning the Web</p>
+        <p class="fine">A four-page log of learning HTML, CSS and JavaScript — written and built by Goodray, 2026.</p>
+      </div>
+      <nav aria-label="Footer">
+        <p class="foot-head">Pages</p>
+        <ul class="foot-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="quotes.html">Quotes</a></li>
+          <li><a href="project.html">Ideas</a></li>
+          <li><a href="machine.html">Machine</a></li>
+        </ul>
+      </nav>
+      <div>
+        <p class="foot-head">Built with</p>
+        <ul class="foot-links">
+          <li>HTML5 &amp; semantic markup</li>
+          <li>Modern CSS — Grid, Flexbox, custom properties</li>
+          <li>JavaScript, no framework, no build step</li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap foot-legal">
+      <p>Course project for Web Technologies · Hainan Bielefeld University of Applied Sciences</p>
+      <p><a href="https://github.com/Goodray111/my-site">Source on GitHub</a></p>
     </div>
   </footer>
+  
+  <script defer src="js/quotes.js"></script>
 </body>
 </html>
