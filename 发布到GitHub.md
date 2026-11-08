@@ -1,9 +1,26 @@
-﻿# 把 my-site 发布到 GitHub（中文步骤）
+# 把 my-site 发布到 GitHub（中文步骤）
 
-站点已经做好，**23 次提交**已经推到 github.com/Goodray111/AgnB666 了。
-现在只差最后一步：推到 `github.com/Goodray111/AgnB666` 并把 GitHub Pages 打开。
+## 已经上线了
 
-因为你的电脑上没有任何 GitHub 凭据，我没有替你推送。两种方式，选一种。
+- 仓库：<https://github.com/Goodray111/AgnB666>
+- 线上：**<https://goodray111.github.io/Agnb666/>**
+
+> ⚠️ Pages 地址是**小写**的 `Agnb666`，不是 `AgnB666`。GitHub Pages 的地址与仓库名的
+> 大小写一致（仓库实际叫 `Agnb666`）。大写的那个地址会返回 404，这不是站点坏了。
+
+四个页面都能直接打开：
+
+- <https://goodray111.github.io/Agnb666/>
+- <https://goodray111.github.io/Agnb666/quotes.html>
+- <https://goodray111.github.io/Agnb666/project.html>
+- <https://goodray111.github.io/Agnb666/machine.html>
+
+以后每次 `git push`，Pages 会在一分钟内自动重新构建（Settings → Pages 里已经是
+`Deploy from a branch · main · / (root)`），不需要再做任何设置。
+
+---
+
+# 当时的完整步骤（留作记录）
 
 ---
 
@@ -51,7 +68,7 @@ powershell -ExecutionPolicy Bypass -File .\publish-github.ps1 -Repo AgnB666 -Ski
 4. 提示 `Paste your GitHub token (input hidden):` 时，**右键粘贴** token，回车（输入过程不显示字符，正常）
 5. 脚本会依次打印 `[1/5]`…`[5/5]`：
    - 检查账号 → 确认仓库 → 推 22 次提交 → 开 Pages → 等构建
-6. 看到绿色 **Done.** 就成功了，打开 <https://goodray111.github.io/AgnB666/>
+6. 看到绿色 **Done.** 就成功了，打开 <https://goodray111.github.io/Agnb666/>
 
 token 只在内存里用一次，不会写进 `.git/config`。
 
@@ -79,7 +96,7 @@ git push -u origin main
 
 3. 弹窗要求登录时，选 **Token**，粘贴刚才的 token（不是密码）。
 4. 回到仓库页面 → **Settings → Pages** → Source 选 **Deploy from a branch** → Branch 选 **main** → 文件夹 **/ (root)** → **Save**。
-5. 等 1–2 分钟，刷新 **Actions** 页，看到绿色的 ✓ 后打开 <https://goodray111.github.io/AgnB666/>。
+5. 等 1–2 分钟，刷新 **Actions** 页，看到绿色的 ✓ 后打开 <https://goodray111.github.io/Agnb666/>。
 
 ---
 
@@ -113,7 +130,7 @@ git push
 | --- | --- |
 | Title | Learning HTML |
 | GitHub repository | `https://github.com/Goodray111/AgnB666` |
-| Live site | `https://goodray111.github.io/AgnB666/` |
+| Live site | `https://goodray111.github.io/Agnb666/` |
 | 五张图 | `images/cover.png`（1200×630，96 KB）、`images/screenshot-desktop.png`（1920×1080）、`images/screenshot-mobile.png`（375×812）、`images/icons/apple-touch-icon.png`（180×180）、`images/icons/favicon-32.png`（32×32） |
 | Status | Completed |
 
