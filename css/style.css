@@ -154,26 +154,114 @@ li { margin: 0.25rem 0; }
 }
 .skip-link:focus { left: 0; color: #fff; }
 
+/* 3. Navigation ------------------------------------------------------------ */
+.site-nav { position: sticky; top: 0; z-index: 50; }
+
+/* The injected bar; the static skip link above is the no-JS first focus stop. */
+.nav-inner,
+.nav-fallback .wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.site-nav > .skip-link { position: absolute; }
+
+body[data-page] .site-nav::before { content: none; }
+
+.site-nav .nav-inner {
+  width: min(100% - 2.5rem, var(--wrap));
+  margin-inline: auto;
+  padding: .75rem 0;
+  background: rgba(247, 245, 240, .82);
+  backdrop-filter: saturate(140%) blur(12px);
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+.site-nav .nav-inner::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -1px;
+  width: 100vw;
+  transform: translateX(-50%);
+  height: 1px;
+  background: var(--line);
+}
 
 .brand {
-  display: inline-flex; align-items: center; gap: .55rem;
-  font-family: var(--font-display); font-weight: 600; font-size: 1.02rem;
-  color: var(--ink); text-decoration: none; margin-right: auto; white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.02rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-decoration: none;
+  margin-right: auto;
+  white-space: nowrap;
 }
 .brand-mark {
-  font-family: var(--font-mono); font-size: .8rem; color: var(--accent);
-  background: var(--accent-wash); border: 1px solid rgba(194, 65, 12, .25);
-  border-radius: 7px; padding: .28rem .42rem;
+  font-family: var(--font-mono);
+  font-size: .8rem;
+  color: var(--accent);
+  background: var(--accent-wash);
+  border: 1px solid rgba(194, 65, 12, .25);
+  border-radius: 7px;
+  padding: .28rem .42rem;
+  letter-spacing: -0.05em;
 }
-.site-nav { position: sticky; top: 0; z-index: 50; }
-.nav-inner {
-  display: flex; align-items: center; gap: var(--space-3);
-  width: min(100% - 2.5rem, var(--wrap)); margin-inline: auto;
-  padding: .75rem 0; border-bottom: 2px solid var(--ink);
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: .15rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
-.nav-menu { display: flex; align-items: center; gap: 1rem; list-style: none; margin: 0; padding: 0; }
-.nav-menu a { color: var(--ink); font-weight: 500; text-decoration: none; }
-.nav-menu a:hover { text-decoration: underline; }
+.nav-menu a {
+  display: inline-block;
+  padding: .45rem .8rem;
+  border-radius: 999px;
+  color: var(--ink-soft);
+  font-size: .95rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+.nav-menu a:hover { background: #ece7dc; color: var(--ink); }
+.nav-menu a[aria-current="page"] {
+  background: var(--ink);
+  color: #fff;
+}
+
+.nav-toggle {
+  display: none;
+  align-items: center;
+  gap: .5rem;
+  background: #fff;
+  border: 1px solid var(--line-strong);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: .4rem .8rem;
+  font: inherit;
+  font-size: .9rem;
+  cursor: pointer;
+}
+.nav-toggle-bars { display: inline-grid; gap: 3px; }
+.nav-toggle-bars i {
+  display: block;
+  width: 16px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform .2s var(--ease), opacity .2s var(--ease);
+}
+.nav-toggle[aria-expanded="true"] .nav-toggle-bars i:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .nav-toggle-bars i:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] .nav-toggle-bars i:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+
 /* 4. Layout ---------------------------------------------------------------- */
 main { padding-block: var(--space-6) var(--space-7); }
 
