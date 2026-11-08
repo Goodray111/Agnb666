@@ -2,7 +2,7 @@
 
 ## 已经上线了
 
-- 仓库：<https://github.com/Goodray111/AgnB666>
+- 仓库：<https://github.com/Goodray111/Agnb666>
 - 线上：**<https://goodray111.github.io/Agnb666/>**
 
 > ⚠️ Pages 地址是**小写**的 `Agnb666`，不是 `AgnB666`。GitHub Pages 的地址与仓库名的
@@ -90,7 +90,7 @@ token 只在内存里用一次，不会写进 `.git/config`。
 
 ```bash
 cd "/c/Users/15750/Desktop/新建文件夹/web-projects/my-site"
-git remote add origin https://github.com/Goodray111/AgnB666.git
+git remote add origin https://github.com/Goodray111/Agnb666.git
 git push -u origin main
 ```
 
@@ -129,7 +129,7 @@ git push
 | 表单项 | 内容 |
 | --- | --- |
 | Title | Learning HTML |
-| GitHub repository | `https://github.com/Goodray111/AgnB666` |
+| GitHub repository | `https://github.com/Goodray111/Agnb666` |
 | Live site | `https://goodray111.github.io/Agnb666/` |
 | 五张图 | `images/cover.png`（1200×630，96 KB）、`images/screenshot-desktop.png`（1920×1080）、`images/screenshot-mobile.png`（375×812）、`images/icons/apple-touch-icon.png`（180×180）、`images/icons/favicon-32.png`（32×32） |
 | Status | Completed |
