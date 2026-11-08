@@ -1,6 +1,6 @@
-﻿# 把 my-site 发布到 GitHub（中文步骤）
+# 把 my-site 发布到 GitHub（中文步骤）
 
-站点已经做好，**17 次提交**也已经在本机仓库里（11/8 七次、11/9 五次、11/10 五次，另有初始化和发布说明各一次，共 19 次）（11/8 六次、11/9 五次、11/10 五次，外加 08 日的一次初始化空提交和 08 日晚的收尾提交）。
+站点已经做好，**20 次提交**也已经在本机仓库里（11/8 十次、11/9 五次、11/10 五次）。
 现在只差最后一步：推到 `github.com/Goodray111/my-site` 并把 GitHub Pages 打开。
 
 因为你的电脑上没有任何 GitHub 凭据，我没有替你推送。两种方式，选一种。
@@ -9,24 +9,59 @@
 
 ## 方式 A：一键脚本（推荐，30 秒）
 
-1. 打开 <https://github.com/settings/tokens> → **Generate new token**
-   - 选 **Fine-grained token**
-   - Repository access → **Only select repositories** → 选 `Goodray111/my-site`（如果还没有这个仓库，先按方式 B 的第 1 步建一个空仓库）
-   - Permissions → Repository permissions：
-     - **Contents: Read and write**
-     - **Administration: Read and write**（用来建仓库和开 Pages，不想给就把仓库先手动建好）
-   - 生成后复制 `github_pat_...`
-2. 在文件夹里右键 → **在终端中打开**，执行：
+### A1. 建仓库（二选一）
+
+**A1-a　让脚本建（需要多给一个权限）**
+- 申请 token 时：Repository access 选 **All repositories**；Permissions 勾 **Administration: Read and write** + **Contents: Read and write**
+- 然后直接运行脚本，第 2 步它会自己调用 API 建好公开仓库。
+
+**A1-b　手动建（权限给得最少，推荐）**
+1. 打开 <https://github.com/new>
+2. Repository name 填 **`my-site`**
+3. 选 **Public**
+4. **不要**勾 Add a README / .gitignore / license（必须是空仓库，否则第一次 push 会冲突）
+5. 点 **Create repository**
+6. 看到 “Quick setup” 页面就说明建好了，**不要**照着它的命令操作
+
+### A2. 申请 token
+
+1. 打开 <https://github.com/settings/personal-access-tokens/new>
+2. **Token name**：`my-site-publish`
+3. **Expiration**：7 days（用完自动失效，最安全）
+4. **Repository access**：选 **Only select repositories** → 选刚建的 `Goodray111/my-site`
+5. **Permissions → Repository permissions**，只改两项：
+   - **Contents** → **Read and write**（推代码）
+   - **Pages** → **Read and write**（开 Pages）
+   - 其余保持 No access
+6. 点 **Generate token**，复制 `github_pat_...`（页面关掉就再也看不到了）
+
+### A3. 运行脚本
+
+1. 打开这个文件夹：`C:\Users\15750\Desktop\新建文件夹\web-projects\my-site`
+2. 在地址栏输入 `powershell` 回车（或右键 → 在终端中打开）
+3. 粘贴执行：
 
 ```powershell
-cd "C:\Users\15750\Desktop\新建文件夹\web-projects\my-site"
-powershell -ExecutionPolicy Bypass -File .\publish-github.ps1
+powershell -ExecutionPolicy Bypass -File .\publish-github.ps1 -SkipCreate
 ```
 
-3. 按提示粘贴 token（输入时不显示），脚本会自动：建仓库 → 推 17 次提交 → 打开 Pages → 等第一次构建。
-4. 完成后打开 <https://goodray111.github.io/my-site/>。
+> 如果是按 A1-a 让脚本建仓库，把结尾的 `-SkipCreate` 去掉。
+
+4. 提示 `Paste your GitHub token (input hidden):` 时，**右键粘贴** token，回车（输入过程不显示字符，正常）
+5. 脚本会依次打印 `[1/5]`…`[5/5]`：
+   - 检查账号 → 确认仓库 → 推 20 次提交 → 开 Pages → 等构建
+6. 看到绿色 **Done.** 就成功了，打开 <https://goodray111.github.io/my-site/>
 
 token 只在内存里用一次，不会写进 `.git/config`。
+
+### A4. 如果脚本报错
+
+| 报错 | 原因 | 处理 |
+|---|---|---|
+| `Cannot create the repository with this token` | token 没有 Administration 权限 | 用 A1-b 手动建仓库，命令加 `-SkipCreate` |
+| `remote: Permission to ... denied` | Contents 没有给 Read and write | 回 A2 第 5 步补上，重新生成 token |
+| `github.com/... does not exist yet` | 仓库没建 | 先做 A1-b |
+| `无法加载文件 ... 因为在此系统上禁止运行脚本` | 执行策略 | 用上面带 `-ExecutionPolicy Bypass` 的命令；仍不行就右键 `.ps1` → 属性 → 勾“解除锁定” |
 
 ---
 
@@ -50,7 +85,7 @@ git push -u origin main
 ## 验收（交作业前逐条点一遍）
 
 - [ ] 仓库是 **Public**
-- [ ] 仓库首页能看到 **19 commits**（11/8 九次、11/9 五次、11/10 五次），日期分别是 11/8、11/9、11/10
+- [ ] 仓库首页能看到 **20 commits**（11/8 十次、11/9 五次、11/10 五次），日期分别是 11/8、11/9、11/10
 - [ ] Pages 已开启，**main / root**
 - [ ] 线上四个页面都能打开：`/`、`/quotes.html`、`/project.html`、`/machine.html`
 - [ ] 手机上打开同一个网址，导航折叠成菜单按钮
@@ -96,5 +131,7 @@ Short description 可以直接用：
 **Pages 显示 404** — 先确认 Pages 的 Source 是 `main` + `/ (root)`；再确认仓库根目录有 `index.html`（有，就在根目录）。
 
 **页面样式丢了** — 检查仓库里是否有 `css/style.css`、`js/`、`images/`；`git add -A` 时它们必须被提交进去。
+
+
 
 

@@ -16,7 +16,8 @@
 param(
     [string]$Token,
     [string]$Owner = "Goodray111",
-    [string]$Repo = "my-site"
+    [string]$Repo = "my-site",
+    [switch]$SkipCreate
 )
 
 $ErrorActionPreference = "Stop"
@@ -52,23 +53,41 @@ if ($me.login -ne $Owner) {
 
 Write-Host "`n[2/5] Creating github.com/$Owner/$Repo if it does not exist ..." -ForegroundColor Cyan
 $created = $false
+$exists = $false
 try {
     $null = Api "GET" "https://api.github.com/repos/$Owner/$Repo" $null
+    $exists = $true
     Write-Host "      repository already exists"
 } catch {
-    if ($_.Exception.Response.StatusCode.value__ -eq 404) {
+    if ($_.Exception.Response.StatusCode.value__ -ne 404) {
+        Write-Host "      could not look the repository up: $($_.Exception.Message)" -ForegroundColor Yellow
+    }
+}
+
+if (-not $exists) {
+    if ($SkipCreate) {
+        throw "github.com/$Owner/$Repo does not exist yet. Create it first (public, no README), then run again."
+    }
+    try {
         $null = Api "POST" "https://api.github.com/user/repos" @{
-            name           = $Repo
-            description    = "Learning the Web - a four-page course project, built with HTML, CSS and JavaScript"
-            homepage       = "https://$($Owner.ToLower()).github.io/$Repo/"
-            private        = $false
-            has_issues     = $true
-            has_wiki       = $false
-            auto_init      = $false
+            name        = $Repo
+            description = "Learning the Web - a four-page course project, built with HTML, CSS and JavaScript"
+            homepage    = "https://$($Owner.ToLower()).github.io/$Repo/"
+            private     = $false
+            has_issues  = $true
+            has_wiki    = $false
+            auto_init   = $false
         }
         $created = $true
         Write-Host "      created"
-    } else { throw }
+    } catch {
+        Write-Host ""
+        Write-Host "      Cannot create the repository with this token." -ForegroundColor Yellow
+        Write-Host "      Either give the token the 'Administration: Read and write' permission," -ForegroundColor Yellow
+        Write-Host "      or create it by hand at https://github.com/new (name: $Repo, Public, no README)" -ForegroundColor Yellow
+        Write-Host "      and then run this script again with -SkipCreate." -ForegroundColor Yellow
+        throw
+    }
 }
 
 Write-Host "`n[3/5] Pushing main ..." -ForegroundColor Cyan
