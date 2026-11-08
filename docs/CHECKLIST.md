@@ -30,7 +30,7 @@ Tick an item only when you have seen it work yourself.
 ## GitHub and hosting
 
 - [ ] Repository `my-site` is **public**
-- [ ] The history shows work across three days, 20 commits: 10 on 8 Nov, 5 on 9 Nov, 5 on 10 Nov
+- [ ] The history shows work across three days, 22 commits: 12 on 8 Nov, 5 on 9 Nov, 5 on 10 Nov
 - [ ] Settings → Pages → Deploy from a branch → `main` → `/ (root)` → Save
 - [ ] `https://goodray111.github.io/my-site/` opens on wi-fi **and** on mobile data
 - [ ] Every page at the real address works, not only the home page
@@ -45,6 +45,7 @@ Tick an item only when you have seen it work yourself.
 - [ ] Live site URL opens
 - [ ] Five images uploaded, all five named as in the table above
 - [ ] Status: Completed
+
 
 
 

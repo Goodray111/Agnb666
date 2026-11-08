@@ -63,11 +63,12 @@ link that matches `<body data-page="…">`. Changing a link means changing one f
 
 ## History
 
-Twenty commits over three days: ten on 8 November, five on 9 November, five on 10 November.
+Twenty-two commits over three days: twelve on 8 November, five on 9 November, five on 10 November.
 
 ## Author
 
 Goodray · 2026 · course project for Web Technologies
+
 
 
 

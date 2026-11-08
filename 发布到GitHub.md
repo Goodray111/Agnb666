@@ -1,6 +1,6 @@
-# 把 my-site 发布到 GitHub（中文步骤）
+﻿# 把 my-site 发布到 GitHub（中文步骤）
 
-站点已经做好，**20 次提交**也已经在本机仓库里（11/8 十次、11/9 五次、11/10 五次）。
+站点已经做好，**22 次提交**已经推到 github.com/Goodray111/AgnB666 了。
 现在只差最后一步：推到 `github.com/Goodray111/AgnB666` 并把 GitHub Pages 打开。
 
 因为你的电脑上没有任何 GitHub 凭据，我没有替你推送。两种方式，选一种。
@@ -50,7 +50,7 @@ powershell -ExecutionPolicy Bypass -File .\publish-github.ps1 -Repo AgnB666 -Ski
 
 4. 提示 `Paste your GitHub token (input hidden):` 时，**右键粘贴** token，回车（输入过程不显示字符，正常）
 5. 脚本会依次打印 `[1/5]`…`[5/5]`：
-   - 检查账号 → 确认仓库 → 推 20 次提交 → 开 Pages → 等构建
+   - 检查账号 → 确认仓库 → 推 22 次提交 → 开 Pages → 等构建
 6. 看到绿色 **Done.** 就成功了，打开 <https://goodray111.github.io/AgnB666/>
 
 token 只在内存里用一次，不会写进 `.git/config`。
@@ -86,7 +86,7 @@ git push -u origin main
 ## 验收（交作业前逐条点一遍）
 
 - [ ] 仓库是 **Public**
-- [ ] 仓库首页能看到 **20 commits**（11/8 十次、11/9 五次、11/10 五次），日期分别是 11/8、11/9、11/10
+- [ ] 仓库首页能看到 **22 commits**（11/8 十二次、11/9 五次、11/10 五次），日期分别是 11/8、11/9、11/10
 - [ ] Pages 已开启，**main / root**
 - [ ] 线上四个页面都能打开：`/`、`/quotes.html`、`/project.html`、`/machine.html`
 - [ ] 手机上打开同一个网址，导航折叠成菜单按钮
@@ -132,6 +132,7 @@ Short description 可以直接用：
 **Pages 显示 404** — 先确认 Pages 的 Source 是 `main` + `/ (root)`；再确认仓库根目录有 `index.html`（有，就在根目录）。
 
 **页面样式丢了** — 检查仓库里是否有 `css/style.css`、`js/`、`images/`；`git add -A` 时它们必须被提交进去。
+
 
 
 
