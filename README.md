@@ -1,4 +1,4 @@
-# Learning the Web — my-site
+﻿# Learning the Web — my-site
 
 A four-page site written from scratch for the Web Technologies course at Hainan Bielefeld
 University of Applied Sciences. No framework, no build step: HTML, one stylesheet, and
@@ -61,6 +61,11 @@ link that matches `<body data-page="…">`. Changing a link means changing one f
 - Three breakpoints (62rem, 46rem, 30rem); tested from 320 px to 1920 px.
 - No console errors, no broken links, no placeholder text.
 
+## History
+
+Eighteen commits over three days: six on 8 November, five on 9 November, five on 10 November.
+
 ## Author
 
 Goodray · 2026 · course project for Web Technologies
+
