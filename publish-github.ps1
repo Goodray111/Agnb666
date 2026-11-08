@@ -92,8 +92,12 @@ if (-not $exists) {
 
 Write-Host "`n[3/5] Pushing main ..." -ForegroundColor Cyan
 $remote = "https://github.com/$Owner/$Repo.git"
-& $git -C $PSScriptRoot remote remove origin 2>$null
-& $git -C $PSScriptRoot remote add origin $remote
+$existing = & $git -C $PSScriptRoot remote 2>$null
+if ($existing -contains "origin") {
+    & $git -C $PSScriptRoot remote set-url origin $remote
+} else {
+    & $git -C $PSScriptRoot remote add origin $remote
+}
 
 # push with the token in memory only - it is never written to .git/config
 $env:GITHUB_TOKEN = $Token
