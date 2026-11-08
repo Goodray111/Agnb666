@@ -1,7 +1,7 @@
 # 把 my-site 发布到 GitHub（中文步骤）
 
 站点已经做好，**20 次提交**也已经在本机仓库里（11/8 十次、11/9 五次、11/10 五次）。
-现在只差最后一步：推到 `github.com/Goodray111/my-site` 并把 GitHub Pages 打开。
+现在只差最后一步：推到 `github.com/Goodray111/AgnB666` 并把 GitHub Pages 打开。
 
 因为你的电脑上没有任何 GitHub 凭据，我没有替你推送。两种方式，选一种。
 
@@ -42,15 +42,16 @@
 3. 粘贴执行：
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\publish-github.ps1 -SkipCreate
+powershell -ExecutionPolicy Bypass -File .\publish-github.ps1 -Repo AgnB666 -SkipCreate
 ```
 
-> 如果是按 A1-a 让脚本建仓库，把结尾的 `-SkipCreate` 去掉。
+> 仓库已经是现成的 `AgnB666`，所以一定要带 `-Repo AgnB666`（脚本默认找 `my-site`）。
+> 如果哪天你把这个仓库改名成了 `my-site`，就直接不带 `-Repo` 运行。
 
 4. 提示 `Paste your GitHub token (input hidden):` 时，**右键粘贴** token，回车（输入过程不显示字符，正常）
 5. 脚本会依次打印 `[1/5]`…`[5/5]`：
    - 检查账号 → 确认仓库 → 推 20 次提交 → 开 Pages → 等构建
-6. 看到绿色 **Done.** 就成功了，打开 <https://goodray111.github.io/my-site/>
+6. 看到绿色 **Done.** 就成功了，打开 <https://goodray111.github.io/AgnB666/>
 
 token 只在内存里用一次，不会写进 `.git/config`。
 
@@ -58,7 +59,7 @@ token 只在内存里用一次，不会写进 `.git/config`。
 
 | 报错 | 原因 | 处理 |
 |---|---|---|
-| `Cannot create the repository with this token` | token 没有 Administration 权限 | 用 A1-b 手动建仓库，命令加 `-SkipCreate` |
+| `Cannot create the repository with this token` | token 没有 Administration 权限 | 用 A1-b 手动建仓库，命令加 `-SkipCreate -Repo AgnB666` |
 | `remote: Permission to ... denied` | Contents 没有给 Read and write | 回 A2 第 5 步补上，重新生成 token |
 | `github.com/... does not exist yet` | 仓库没建 | 先做 A1-b |
 | `无法加载文件 ... 因为在此系统上禁止运行脚本` | 执行策略 | 用上面带 `-ExecutionPolicy Bypass` 的命令；仍不行就右键 `.ps1` → 属性 → 勾“解除锁定” |
@@ -67,18 +68,18 @@ token 只在内存里用一次，不会写进 `.git/config`。
 
 ## 方式 B：手动（不运行脚本）
 
-1. 打开 <https://github.com/new>，仓库名 **`my-site`**，**Public**，不要勾 README / .gitignore / license，点 Create。
+1. 打开 <https://github.com/new>，仓库名 **`AgnB666`**，**Public**，不要勾 README / .gitignore / license，点 Create。
 2. 打开 **Git Bash**（开始菜单里搜 Git Bash），执行：
 
 ```bash
 cd "/c/Users/15750/Desktop/新建文件夹/web-projects/my-site"
-git remote add origin https://github.com/Goodray111/my-site.git
+git remote add origin https://github.com/Goodray111/AgnB666.git
 git push -u origin main
 ```
 
 3. 弹窗要求登录时，选 **Token**，粘贴刚才的 token（不是密码）。
 4. 回到仓库页面 → **Settings → Pages** → Source 选 **Deploy from a branch** → Branch 选 **main** → 文件夹 **/ (root)** → **Save**。
-5. 等 1–2 分钟，刷新 **Actions** 页，看到绿色的 ✓ 后打开 <https://goodray111.github.io/my-site/>。
+5. 等 1–2 分钟，刷新 **Actions** 页，看到绿色的 ✓ 后打开 <https://goodray111.github.io/AgnB666/>。
 
 ---
 
@@ -111,8 +112,8 @@ git push
 | 表单项 | 内容 |
 | --- | --- |
 | Title | Learning HTML |
-| GitHub repository | `https://github.com/Goodray111/my-site` |
-| Live site | `https://goodray111.github.io/my-site/` |
+| GitHub repository | `https://github.com/Goodray111/AgnB666` |
+| Live site | `https://goodray111.github.io/AgnB666/` |
 | 五张图 | `images/cover.png`（1200×630，96 KB）、`images/screenshot-desktop.png`（1920×1080）、`images/screenshot-mobile.png`（375×812）、`images/icons/apple-touch-icon.png`（180×180）、`images/icons/favicon-32.png`（32×32） |
 | Status | Completed |
 
@@ -131,6 +132,7 @@ Short description 可以直接用：
 **Pages 显示 404** — 先确认 Pages 的 Source 是 `main` + `/ (root)`；再确认仓库根目录有 `index.html`（有，就在根目录）。
 
 **页面样式丢了** — 检查仓库里是否有 `css/style.css`、`js/`、`images/`；`git add -A` 时它们必须被提交进去。
+
 
 
 

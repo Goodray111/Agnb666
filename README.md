@@ -4,7 +4,7 @@ A four-page site written from scratch for the Web Technologies course at Hainan 
 University of Applied Sciences. No framework, no build step: HTML, one stylesheet, and
 JavaScript with no dependencies.
 
-**Live:** https://goodray111.github.io/my-site/
+**Live:** https://goodray111.github.io/AgnB666/
 
 ## The four pages
 
@@ -68,6 +68,7 @@ Twenty commits over three days: ten on 8 November, five on 9 November, five on 1
 ## Author
 
 Goodray · 2026 · course project for Web Technologies
+
 
 
 
