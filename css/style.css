@@ -623,3 +623,5 @@ main { padding-block: var(--space-6) var(--space-7); }
   .quote.is-hidden, .idea.is-hidden { display: block; }
   main { padding: 0; }
 }
+
+.section-head h2 a { color: inherit; }
