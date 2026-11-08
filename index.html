@@ -1,20 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Learning the Web</title>
-  <meta name="description" content="A four-page site about learning web development.">
+  <title>Learning the Web — a student log of HTML, CSS and JavaScript</title>
+  <meta name="description" content="A four-page site about learning web development: what I built, 18 quotes worth keeping, eight project ideas, and a small useless machine.">
+  <meta name="author" content="Goodray">
+  <meta name="theme-color" content="#0f172a">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Learning the Web">
+  <meta property="og:title" content="Learning the Web — a student log of HTML, CSS and JavaScript">
+  <meta property="og:description" content="A four-page site about learning web development: what I built, 18 quotes worth keeping, eight project ideas, and a small useless machine.">
+  <meta property="og:url" content="https://goodray111.github.io/my-site/index.html">
+  <meta property="og:image" content="https://goodray111.github.io/my-site/images/cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="images/icons/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
+  <script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
+  <link rel="preload" href="css/style.css" as="style">
   <link rel="stylesheet" href="css/style.css">
-  <script defer src="js/nav.js"></script>
 </head>
-<body>
-  <nav id="site-nav" class="site-nav" aria-label="Main"></nav>
-<main id="main" class="wrap"><h1>Learning the Web</h1><p>Four pages, written from scratch while learning HTML, CSS and JavaScript.</p></main>
-  <footer class="site-foot">
-    <div class="wrap">
-      <p><strong>Learning the Web</strong> — a course project for Web Technologies, 2026.</p>
+<body data-page="index">
+  <a class="skip-link skip-link--static" href="#main">Skip to content</a>
+
+  <!-- Navigation is written once in nav.html and injected by js/nav.js -->
+  <nav id="site-nav" class="site-nav" aria-label="Main">
+    <noscript>
+      <div class="wrap nav-fallback">
+        <a class="brand" href="index.html"><span class="brand-mark">&lt;/&gt;</span> Learning the Web</a>
+        <ul class="nav-menu is-open">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="quotes.html">Quotes</a></li>
+          <li><a href="project.html">Ideas</a></li>
+          <li><a href="machine.html">Machine</a></li>
+        </ul>
+      </div>
+    </noscript>
+  </nav>
+
+<main id="main" class="wrap">
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow">Web Technologies · course site</p>
+      <h1 id="hero-title">Learning the web,<br>one page at a time.</h1>
+      <p class="lede">Four pages, written from scratch while learning HTML, CSS and JavaScript.
+        No framework, no build step — just the three languages of the web, and the things I made with them.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="quotes.html">Read the quotes</a>
+        <a class="btn btn-ghost" href="#overview">What is on this site</a>
+      </div>
+      <ul class="hero-facts">
+        <li><strong>4</strong> pages</li>
+        <li><strong>18</strong> quotes</li>
+        <li><strong>8</strong> project ideas</li>
+        <li><strong>1</strong> useless machine</li>
+      </ul>
     </div>
-  </footer>
-</body>
-</html>
+    <figure class="hero-art">
+      <img src="images/hero.webp" width="1200" height="900" alt="Illustration of a browser window with code brackets and a small drawing of the globe." fetchpriority="high">
+      <figcaption>Drawn for this site: a browser, a pair of tags, and the whole web behind them.</figcaption>
+    </figure>
+  </section>
+
+  <section id="overview" class="section" aria-labelledby="overview-title">
+    <div class="section-head">
+      <h2 id="overview-title">What is on this site</h2>
+      <p>Three pages of good stuff and one page of nonsense. Every page is linked from the navigation above, and every link works.</p>
+    </div>
+    <div class="cards">
+      <article class="card card--page">
+        <p class="card-kicker">01 · Quotes</p>
+        <h3><a href="quotes.html">Eighteen quotes</a></h3>
+        <p>Sentences about learning, craft and the web that are worth keeping. Search them, filter them, or ask for a random one.</p>
+        <p class="card-meta">18 quotes · search · filters</p>
+      </article>
+      <article class="card card--page">
+        <p class="card-kicker">02 · Ideas</p>
+        <h3><a href="project.html">Eight project ideas</a></h3>
+        <p>Things I could build next, sorted by how ready I am to build them. Each one lists the skills it would need.</p>
+        <p class="card-meta">8 ideas · levels · filters</p>
+      </article>
+      <article class="card card--page">
+        <p class="card-kicker">03 · Machine</p>
+        <h3><a href="machine.html">A useless machine</a></h3>
+        <p>A box with one switch. It turns itself off. And a small game where you catch bugs before they escape the screen.</p>
+        <p class="card-meta">1 switch · 1 game</p>
+      </article>
+      <article class="card card--page card--about">
+        <p class="card-kicker">04 · About this build</p>
+        <h3>How it was made</h3>
+        <p>Semantic HTML, one stylesheet, and JavaScript with no dependencies. The navigation is written once and loaded into every page.</p>
+        <p class="card-meta">HTML · CSS · JS</p>
+      </article>
+    </div>
+  </section>
+
