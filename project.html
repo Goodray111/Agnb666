@@ -82,7 +82,7 @@
 
     <p class="empty" id="idea-empty" hidden>Nothing in that group yet.</p>
     <div class="idea-grid" id="idea-grid">
-      <article class="idea" data-status="Ready" data-size="Medium">
+      <article class="idea" data-num="ONE" data-status="Ready" data-size="Medium">
         <div class="idea-top">
           <span class="idea-num" aria-hidden="true">ONE</span>
           <span class="pill pill--ready">Ready</span>
@@ -91,8 +91,9 @@
         <p>An app that shows the next high and low tide for one beach, with a countdown and a plain-text forecast.</p>
         <ul class="tags" aria-label="Skills needed"><li>fetch()</li><li>Date</li><li>CSS Grid</li></ul>
         <p class="idea-size">Size: <strong>Medium</strong></p>
+        <button class="idea-more" type="button">Read the plan</button>
       </article>
-      <article class="idea" data-status="Ready" data-size="Small">
+      <article class="idea" data-num="TWO" data-status="Ready" data-size="Small">
         <div class="idea-top">
           <span class="idea-num" aria-hidden="true">TWO</span>
           <span class="pill pill--ready">Ready</span>
@@ -101,8 +102,9 @@
         <p>Pick a recipe, set the number of people, and every ingredient recalculates. Good practice for forms and numbers.</p>
         <ul class="tags" aria-label="Skills needed"><li>forms</li><li>Number()</li><li>DOM</li></ul>
         <p class="idea-size">Size: <strong>Small</strong></p>
+        <button class="idea-more" type="button">Read the plan</button>
       </article>
-      <article class="idea" data-status="Ready" data-size="Small">
+      <article class="idea" data-num="THREE" data-status="Ready" data-size="Small">
         <div class="idea-top">
           <span class="idea-num" aria-hidden="true">THREE</span>
           <span class="pill pill--ready">Ready</span>
@@ -111,8 +113,9 @@
         <p>A tiny game that runs on the arrow keys and the space bar. No mouse at all — and no canvas, just the DOM.</p>
         <ul class="tags" aria-label="Skills needed"><li>events</li><li>state</li><li>CSS</li></ul>
         <p class="idea-size">Size: <strong>Small</strong></p>
+        <button class="idea-more" type="button">Read the plan</button>
       </article>
-      <article class="idea" data-status="Next" data-size="Medium">
+      <article class="idea" data-num="FOUR" data-status="Next" data-size="Medium">
         <div class="idea-top">
           <span class="idea-num" aria-hidden="true">FOUR</span>
           <span class="pill pill--next">Next</span>
@@ -121,8 +124,9 @@
         <p>Log the books I finish, with a star rating and a small chart of pages per month. Data stays in localStorage.</p>
         <ul class="tags" aria-label="Skills needed"><li>localStorage</li><li>arrays</li><li>SVG</li></ul>
         <p class="idea-size">Size: <strong>Medium</strong></p>
+        <button class="idea-more" type="button">Read the plan</button>
       </article>
-      <article class="idea" data-status="Next" data-size="Medium">
+      <article class="idea" data-num="FIVE" data-status="Next" data-size="Medium">
         <div class="idea-top">
           <span class="idea-num" aria-hidden="true">FIVE</span>
           <span class="pill pill--next">Next</span>
@@ -131,8 +135,9 @@
         <p>Question, answer, flip. Spaced repetition kept simple: cards I get wrong come back sooner.</p>
         <ul class="tags" aria-label="Skills needed"><li>objects</li><li>timers</li><li>storage</li></ul>
         <p class="idea-size">Size: <strong>Medium</strong></p>
+        <button class="idea-more" type="button">Read the plan</button>
       </article>
-      <article class="idea" data-status="Someday" data-size="Medium">
+      <article class="idea" data-num="SIX" data-status="Someday" data-size="Medium">
         <div class="idea-top">
           <span class="idea-num" aria-hidden="true">SIX</span>
           <span class="pill pill--someday">Someday</span>
@@ -141,8 +146,9 @@
         <p>A calendar of when each plant was last watered, with a quiet nudge when one is due.</p>
         <ul class="tags" aria-label="Skills needed"><li>Date</li><li>forms</li><li>CSS</li></ul>
         <p class="idea-size">Size: <strong>Medium</strong></p>
+        <button class="idea-more" type="button">Read the plan</button>
       </article>
-      <article class="idea" data-status="Someday" data-size="Large">
+      <article class="idea" data-num="SEVEN" data-status="Someday" data-size="Large">
         <div class="idea-top">
           <span class="idea-num" aria-hidden="true">SEVEN</span>
           <span class="pill pill--someday">Someday</span>
@@ -151,8 +157,9 @@
         <p>One route, one page: the next three departures from my stop, updating every minute.</p>
         <ul class="tags" aria-label="Skills needed"><li>time zones</li><li>JSON</li><li>fetch()</li></ul>
         <p class="idea-size">Size: <strong>Large</strong></p>
+        <button class="idea-more" type="button">Read the plan</button>
       </article>
-      <article class="idea" data-status="Someday" data-size="Large">
+      <article class="idea" data-num="EIGHT" data-status="Someday" data-size="Large">
         <div class="idea-top">
           <span class="idea-num" aria-hidden="true">EIGHT</span>
           <span class="pill pill--someday">Someday</span>
@@ -161,6 +168,7 @@
         <p>Write notes in Markdown, run one command, get HTML. The most ambitious idea on this page.</p>
         <ul class="tags" aria-label="Skills needed"><li>Node.js</li><li>Markdown</li><li>build</li></ul>
         <p class="idea-size">Size: <strong>Large</strong></p>
+        <button class="idea-more" type="button">Read the plan</button>
       </article>
     </div>
   </section>
@@ -188,6 +196,25 @@
     <a class="btn btn-primary" href="machine.html">See the machine instead</a>
   </section>
 </main>
+
+  <dialog class="idea-dialog" id="idea-dialog" aria-labelledby="idea-dialog-title">
+    <form method="dialog" class="idea-dialog-close">
+      <button type="submit" aria-label="Close">×</button>
+    </form>
+    <div class="idea-dialog-body">
+      <p class="card-kicker" id="idea-dialog-kicker">Idea</p>
+      <h2 id="idea-dialog-title">Idea title</h2>
+      <p class="idea-dialog-desc"></p>
+      <h3>First three steps</h3>
+      <ol class="idea-dialog-steps"></ol>
+      <p class="idea-dialog-skills"></p>
+      <div class="idea-dialog-actions">
+        <button class="btn btn-primary" id="idea-start" type="button">Start this next</button>
+        <button class="btn btn-ghost" id="idea-close" type="button">Close</button>
+      </div>
+      <p class="idea-dialog-state" id="idea-dialog-state" role="status"></p>
+    </div>
+  </dialog>
 
   <footer class="site-foot">
     <div class="wrap foot-grid">
