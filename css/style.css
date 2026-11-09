@@ -574,6 +574,46 @@ main { padding-block: var(--space-6) var(--space-7); }
 .note h3 { font-size: 1rem; margin-bottom: .35rem; }
 .note p { color: var(--ink-soft); font-size: .93rem; }
 
+
+.quote { position: relative; padding-right: 3.4rem; }
+.quote-fav {
+  position: absolute;
+  top: .9rem;
+  right: .9rem;
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: #c3bbae;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color .15s, border-color .15s, transform .15s;
+}
+.quote-fav:hover { color: var(--accent); border-color: var(--accent); transform: scale(1.08); }
+.quote-fav[aria-pressed="true"] { color: #e11d48; border-color: rgba(225, 29, 72, .35); background: #fff1f2; }
+.quote.is-fav { border-color: rgba(225, 29, 72, .28); }
+.chip--fav { display: inline-flex; align-items: center; gap: .35rem; }
+.chip-heart { color: #e11d48; font-size: .9rem; }
+.chip-count {
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  background: rgba(15, 23, 42, .08);
+  border-radius: 999px;
+  padding: .05rem .35rem;
+}
+.chip.is-active .chip-count { background: rgba(255, 255, 255, .22); color: #fff; }
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0; border: 0;
+  clip: rect(0 0 0 0); clip-path: inset(50%);
+  overflow: hidden; white-space: nowrap;
+}
+
 /* 7. Ideas ----------------------------------------------------------------- */
 .idea-grid {
   display: grid;
