@@ -1,20 +1,166 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The useless machine — Learning the Web</title>
-  <meta name="description" content="A useless machine and a small game.">
+  <meta name="description" content="A minimal useless machine that switches itself off, and a small game where you catch bugs before they escape.">
+  <meta name="author" content="Goodray">
+  <meta name="theme-color" content="#0f172a">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Learning the Web">
+  <meta property="og:title" content="The useless machine — Learning the Web">
+  <meta property="og:description" content="A minimal useless machine that switches itself off, and a small game where you catch bugs before they escape.">
+  <meta property="og:url" content="https://goodray111.github.io/my-site/machine.html">
+  <meta property="og:image" content="https://goodray111.github.io/my-site/images/cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="images/icons/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
+  <script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
+  <link rel="preload" href="css/style.css" as="style">
   <link rel="stylesheet" href="css/style.css">
   <script defer src="js/nav.js"></script>
 </head>
-<body>
-  <nav id="site-nav" class="site-nav" aria-label="Main"></nav>
-<main id="main" class="wrap"><h1>The useless machine</h1><p>Coming next: a machine that switches itself off.</p></main>
+<body data-page="machine">
+  <a class="skip-link skip-link--static" href="#main">Skip to content</a>
+
+  <!-- Navigation is written once in nav.html and injected by js/nav.js -->
+  <nav id="site-nav" class="site-nav" aria-label="Main">
+    <noscript>
+      <div class="wrap nav-fallback">
+        <a class="brand" href="index.html"><span class="brand-mark">&lt;/&gt;</span> Learning the Web</a>
+        <ul class="nav-menu is-open">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="quotes.html">Quotes</a></li>
+          <li><a href="project.html">Ideas</a></li>
+          <li><a href="machine.html">Machine</a></li>
+        </ul>
+      </div>
+    </noscript>
+  </nav>
+
+<main id="main" class="wrap">
+
+  <header class="page-head">
+    <p class="eyebrow">04 · Machine</p>
+    <h1>A machine that does nothing, on purpose</h1>
+    <p class="lede">The useless machine is a box with one switch. Turn the switch on and a hand comes out and turns it off.
+      It is the most honest machine ever built. Below it is a small game: bugs keep appearing, and you have to catch them.</p>
+  </header>
+
+  <section class="machine" aria-labelledby="machine-title">
+    <div class="machine-stage">
+      <div class="machine-box" id="machine-box">
+        <p class="machine-label" id="machine-title">The useless machine</p>
+        <div class="machine-lid" id="machine-lid">
+          <span class="machine-hand" aria-hidden="true">
+            <span class="hand-arm"></span>
+            <span class="hand-palm"></span>
+          </span>
+        </div>
+        <button class="machine-switch" id="machine-switch" type="button" aria-pressed="false">
+          <span class="switch-track" aria-hidden="true"><span class="switch-knob"></span></span>
+          <span class="switch-text" id="machine-status">Off</span>
+        </button>
+      </div>
+    </div>
+    <div class="machine-copy">
+      <h2 class="h3">One switch, one job</h2>
+      <p>Click the switch. The lid opens, a hand reaches out, and the machine switches itself off again.
+        That is the whole machine — and that is the point.</p>
+      <p class="fine">Built with a checkbox-like button, a CSS transition and about forty lines of JavaScript.
+        It respects <code>prefers-reduced-motion</code>: no hand, no delay, just the state change.</p>
+      <dl class="facts">
+        <div><dt>Parts</dt><dd>1 lid · 1 hand · 1 switch</dd></div>
+        <div><dt>Uses</dt><dd>none</dd></div>
+        <div><dt>Inspired by</dt><dd>Claude Shannon's box, 1950s</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="game" aria-labelledby="game-title">
+    <div class="game-head">
+      <div>
+        <p class="eyebrow">Bonus game</p>
+        <h2 id="game-title">Catch the bugs</h2>
+        <p>Thirty seconds. Bugs appear one at a time — click or tap them before they escape.
+          A keyboard player can press <kbd>Enter</kbd> on the field to catch the bug in the middle.</p>
+      </div>
+      <div class="scoreboard" aria-live="polite">
+        <p class="score"><span id="game-score">0</span><small>caught</small></p>
+        <p class="score"><span id="game-time">30</span><small>seconds</small></p>
+      </div>
+    </div>
+
+    <div class="game-stage">
+      <div class="game-field" id="game-field" role="application" aria-label="Bug catching game field" tabindex="0">
+        <p class="game-idle" id="game-idle">Press start, then catch the bugs.</p>
+        <button class="bug" id="bug" type="button" hidden aria-label="Catch the bug"></button>
+      </div>
+      <div class="game-controls">
+        <button class="btn btn-primary" id="game-start" type="button">Start game</button>
+        <button class="btn btn-ghost" id="game-stop" type="button" disabled>Stop</button>
+        <p class="game-hint" id="game-hint">Best score so far: <strong id="game-best">0</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="notes-title">
+    <div class="section-head">
+      <h2 id="notes-title">How it works</h2>
+      <p>Two toys, the same three ideas: a state, a function that changes it, and a page that shows the change.</p>
+    </div>
+    <div class="note-grid">
+      <div class="note">
+        <h3>The machine</h3>
+        <p>A boolean, a button, and a timeout. Turning the machine on starts a sequence; the hand comes out, the switch flips back, the lid closes.</p>
+      </div>
+      <div class="note">
+        <h3>The game</h3>
+        <p>One bug element is moved to a random spot every time it is caught. A single interval runs the clock. Stopping clears both timers.</p>
+      </div>
+      <div class="note">
+        <h3>Care</h3>
+        <p>Buttons are real buttons, the field is focusable, and the score is announced. Motion is optional, never required to understand the page.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
   <footer class="site-foot">
-    <div class="wrap">
-      <p><strong>Learning the Web</strong> — a course project for Web Technologies, 2026.</p>
+    <div class="wrap foot-grid">
+      <div>
+        <p class="foot-brand"><span class="brand-mark" aria-hidden="true">&lt;/&gt;</span> Learning the Web</p>
+        <p class="fine">A four-page log of learning HTML, CSS and JavaScript — written and built by Goodray, 2026.</p>
+      </div>
+      <nav aria-label="Footer">
+        <p class="foot-head">Pages</p>
+        <ul class="foot-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="quotes.html">Quotes</a></li>
+          <li><a href="project.html">Ideas</a></li>
+          <li><a href="machine.html">Machine</a></li>
+        </ul>
+      </nav>
+      <div>
+        <p class="foot-head">Built with</p>
+        <ul class="foot-links">
+          <li>HTML5 &amp; semantic markup</li>
+          <li>Modern CSS — Grid, Flexbox, custom properties</li>
+          <li>JavaScript, no framework, no build step</li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap foot-legal">
+      <p>Course project for Web Technologies · Hainan Bielefeld University of Applied Sciences</p>
+      <p><a href="https://github.com/Goodray111/my-site">Source on GitHub</a></p>
     </div>
   </footer>
+  
+  <script defer src="js/machine.js"></script>
 </body>
 </html>
