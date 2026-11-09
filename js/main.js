@@ -26,6 +26,16 @@
         io.observe(el);
       }
     });
+
+    /* Failsafe: nothing stays invisible. If an element was never revealed
+       (a very tall page, a browser quirk), show it after a moment. */
+    window.setTimeout(() => {
+      document.querySelectorAll('.reveal:not(.is-revealed)').forEach((el) => {
+        if (el.getBoundingClientRect().top < window.innerHeight) {
+          el.classList.add('is-revealed');
+        }
+      });
+    }, 1200);
   }
 
   /* 2. Back-to-top: appears after the first screen, jumps home when clicked. */

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Notes — Learning the Web</title>
+  <meta name="description" content="A short learning log: what I built, what broke, and what I would do differently on this site.">
+  <meta name="author" content="Goodray">
+  <meta name="theme-color" content="#0f172a">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Learning the Web">
+  <meta property="og:title" content="Notes — Learning the Web">
+  <meta property="og:description" content="A short learning log: what I built, what broke, and what I would do differently.">
+  <meta property="og:url" content="https://goodray111.github.io/Agnb666/notes.html">
+  <meta property="og:image" content="https://goodray111.github.io/Agnb666/images/cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="images/icons/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
+  <link rel="preload" href="css/style.css" as="style">
+  <script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/nav.js"></script>
+</head>
+<body data-page="notes">
+  <a class="skip-link skip-link--static" href="#main">Skip to content</a>
+
+  <!-- Navigation is written once in nav.html and injected by js/nav.js -->
+  <nav id="site-nav" class="site-nav" aria-label="Main">
+    <noscript>
+      <div class="wrap nav-fallback">
+        <a class="brand" href="index.html"><span class="brand-mark">&lt;/&gt;</span> Learning the Web</a>
+        <ul class="nav-menu is-open">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="notes.html">Notes</a></li>
+          <li><a href="quotes.html">Quotes</a></li>
+          <li><a href="project.html">Ideas</a></li>
+          <li><a href="machine.html">Machine</a></li>
+        </ul>
+      </div>
+    </noscript>
+  </nav>
+
+  <div class="read-progress" aria-hidden="true"><span id="read-bar"></span></div>
+
+  <main id="main" class="wrap">
+
+    <header class="page-head">
+      <p class="eyebrow">05 · Notes</p>
+      <h1>Notes from building this</h1>
+      <p class="lede">Three short entries about the work behind these pages: what I tried, what broke,
+        and what I would do differently. Together with the Git history, this is the honest record of the build.</p>
+    </header>
+
+    <div class="notes">
+
+      <article class="note-entry" id="note-1" data-note="2026-11-08">
+        <header class="note-head">
+          <p class="note-date"><time datetime="2026-11-08">8 November</time> · entry 1</p>
+          <h2>Starting with the navigation, not the hero</h2>
+          <p class="note-tags"><span class="pill pill--craft">navigation</span> <span class="pill pill--learning">process</span></p>
+        </header>
+        <p>The first version had four pages and four copies of the same navigation. Every time I changed a link I
+          had to remember three other files. So before touching the design, I moved the navigation into
+          <code>nav.html</code> and wrote <code>nav.js</code> to fetch it into every page.</p>
+        <p>It was the smallest change that removed a whole class of bugs. The lesson was not “use JavaScript”.
+          The lesson was that <strong>repetition is a bug waiting to happen</strong>.</p>
+        <p class="note-meta">Reading time: <span class="read-min" data-min="1">1 min</span></p>
+      </article>
+
+      <article class="note-entry" id="note-2" data-note="2026-11-09">
+        <header class="note-head">
+          <p class="note-date"><time datetime="2026-11-09">9 November</time> · entry 2</p>
+          <h2>Eighteen quotes, one search box</h2>
+          <p class="note-tags"><span class="pill pill--the-web">javascript</span> <span class="pill pill--learning">filtering</span></p>
+        </header>
+        <p>I could have written the quotes straight into the HTML and called it done. Filtering them showed me why
+          <strong>the markup should be the data</strong>: the search box reads the same elements that the page already
+          displays, so there is no second copy of the list to keep in sync.</p>
+        <p>The first version filtered by exact case and missed “Web” when I typed “web”. Normalising both sides with
+          <code>toLowerCase()</code> fixed it. Then the theme chips did nothing, because the buttons said
+          <code>The Web</code> but the cards stored <code>the-web</code> — a hyphen, one attribute, twenty minutes.</p>
+        <p class="note-meta">Reading time: <span class="read-min" data-min="2">2 min</span></p>
+      </article>
+
+      <article class="note-entry" id="note-3" data-note="2026-11-10">
+        <header class="note-head">
+          <p class="note-date"><time datetime="2026-11-10">10 November</time> · entry 3</p>
+          <h2>The bug game, and the bug in the bug game</h2>
+          <p class="note-tags"><span class="pill pill--craft">game</span> <span class="pill pill--learning">testing</span></p>
+        </header>
+        <p>The game looked finished long before it was. Three problems only showed up when I played it:</p>
+        <ol>
+          <li>The bug could appear half outside the field, because I used random pixels instead of percentages.</li>
+          <li>Stopping the game left the countdown running — I cleared one timer and forgot the other.</li>
+          <li>Clicking “Stop” then “Start” again added a second interval, so the clock counted down twice as fast.</li>
+        </ol>
+        <p>All three are the same kind of mistake: <strong>state that lives in two places</strong>. The fix was to clear
+          every timer when the game ends or restarts, and to keep the score, the clock and the running flag in one object.</p>
+        <p class="note-meta">Reading time: <span class="read-min" data-min="2">2 min</span></p>
+      </article>
+
+    </div>
+
+    <section class="section" aria-labelledby="next-title">
+      <div class="section-head">
+        <h2 id="next-title">What comes next</h2>
+        <p>Small things I still want to add, in the order I would do them.</p>
+      </div>
+      <ol class="steps">
+        <li><strong>Move the quotes into a JSON file.</strong> Then adding a quote is one line, not one more block of HTML.</li>
+        <li><strong>A proper 404 page.</strong> GitHub Pages serves its own; mine could point back to the four real pages.</li>
+        <li><strong>Test with a screen reader.</strong> I have only tested with a keyboard so far.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap foot-grid">
+      <div>
+        <p class="foot-brand"><span class="brand-mark" aria-hidden="true">&lt;/&gt;</span> Learning the Web</p>
+        <p class="fine">A five-page log of learning HTML, CSS and JavaScript — written and built by Goodray, 2026.</p>
+      </div>
+      <nav aria-label="Footer">
+        <p class="foot-head">Pages</p>
+        <ul class="foot-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="notes.html">Notes</a></li>
+          <li><a href="quotes.html">Quotes</a></li>
+          <li><a href="project.html">Ideas</a></li>
+          <li><a href="machine.html">Machine</a></li>
+        </ul>
+      </nav>
+      <div>
+        <p class="foot-head">Built with</p>
+        <ul class="foot-links">
+          <li>HTML5 &amp; semantic markup</li>
+          <li>Modern CSS — Grid, Flexbox, custom properties</li>
+          <li>JavaScript, no framework, no build step</li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap foot-legal">
+      <p>Course project for Web Technologies · Hainan Bielefeld University of Applied Sciences</p>
+      <p><a href="https://github.com/Goodray111/Agnb666">Source on GitHub</a></p>
+    </div>
+  </footer>
+
+  <script defer src="js/main.js"></script>
+  <script defer src="js/notes.js"></script>
+</body>
+</html>
