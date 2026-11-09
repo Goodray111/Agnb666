@@ -637,7 +637,7 @@ main { padding-block: var(--space-6) var(--space-7); }
 }
 .steps strong { color: var(--ink); }
 
-/* 8. Machine/* 8. Machine --------------------------------------------------------------- */
+/* 8. Machine --------------------------------------------------------------- */
 .machine {
   display: grid;
   grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
