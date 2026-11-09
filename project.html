@@ -1,20 +1,223 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Project ideas — Learning the Web</title>
-  <meta name="description" content="Project ideas for practising web development.">
+  <meta name="description" content="Eight project ideas for practising HTML, CSS and JavaScript, sorted by how ready they are to build.">
+  <meta name="author" content="Goodray">
+  <meta name="theme-color" content="#0f172a">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Learning the Web">
+  <meta property="og:title" content="Project ideas — Learning the Web">
+  <meta property="og:description" content="Eight project ideas for practising HTML, CSS and JavaScript, sorted by how ready they are to build.">
+  <meta property="og:url" content="https://goodray111.github.io/my-site/project.html">
+  <meta property="og:image" content="https://goodray111.github.io/my-site/images/cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="images/icons/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
+  <script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
+  <link rel="preload" href="css/style.css" as="style">
   <link rel="stylesheet" href="css/style.css">
   <script defer src="js/nav.js"></script>
 </head>
-<body>
-  <nav id="site-nav" class="site-nav" aria-label="Main"></nav>
-<main id="main" class="wrap"><h1>Project ideas</h1><p>Coming next: what I could build.</p></main>
+<body data-page="project">
+  <a class="skip-link skip-link--static" href="#main">Skip to content</a>
+
+  <!-- Navigation is written once in nav.html and injected by js/nav.js -->
+  <nav id="site-nav" class="site-nav" aria-label="Main">
+    <noscript>
+      <div class="wrap nav-fallback">
+        <a class="brand" href="index.html"><span class="brand-mark">&lt;/&gt;</span> Learning the Web</a>
+        <ul class="nav-menu is-open">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="quotes.html">Quotes</a></li>
+          <li><a href="project.html">Ideas</a></li>
+          <li><a href="machine.html">Machine</a></li>
+        </ul>
+      </div>
+    </noscript>
+  </nav>
+
+<main id="main" class="wrap">
+
+  <header class="page-head">
+    <p class="eyebrow">03 · Ideas</p>
+    <h1>Eight things I could build next</h1>
+    <p class="lede">The brief asked for a list of project ideas. This is mine, with an honest label on each one:
+      ready to start, next in line, or a someday idea that needs more than I know today.</p>
+  </header>
+
+  <section class="section" aria-labelledby="ideas-title">
+    <div class="section-head section-head--row">
+      <div>
+        <h2 id="ideas-title">The list</h2>
+        <p id="idea-count" class="count" aria-live="polite">8 ideas</p>
+      </div>
+      <div class="tools">
+        <label class="field">
+          <span>Filter</span>
+          <select id="idea-filter">
+            <option value="all">Every idea</option>
+            <option value="Ready">Ready to start</option>
+            <option value="Next">Next in line</option>
+            <option value="Someday">Someday</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Sort</span>
+          <select id="idea-sort">
+            <option value="default">As written</option>
+            <option value="small">Smallest first</option>
+            <option value="large">Largest first</option>
+          </select>
+        </label>
+      </div>
+    </div>
+
+    <p class="empty" id="idea-empty" hidden>Nothing in that group yet.</p>
+    <div class="idea-grid" id="idea-grid">
+      <article class="idea" data-status="Ready" data-size="Medium">
+        <div class="idea-top">
+          <span class="idea-num" aria-hidden="true">ONE</span>
+          <span class="pill pill--ready">Ready</span>
+        </div>
+        <h3>A tide-clock for the bay</h3>
+        <p>An app that shows the next high and low tide for one beach, with a countdown and a plain-text forecast.</p>
+        <ul class="tags" aria-label="Skills needed"><li>fetch()</li><li>Date</li><li>CSS Grid</li></ul>
+        <p class="idea-size">Size: <strong>Medium</strong></p>
+      </article>
+      <article class="idea" data-status="Ready" data-size="Small">
+        <div class="idea-top">
+          <span class="idea-num" aria-hidden="true">TWO</span>
+          <span class="pill pill--ready">Ready</span>
+        </div>
+        <h3>A recipe page that scales</h3>
+        <p>Pick a recipe, set the number of people, and every ingredient recalculates. Good practice for forms and numbers.</p>
+        <ul class="tags" aria-label="Skills needed"><li>forms</li><li>Number()</li><li>DOM</li></ul>
+        <p class="idea-size">Size: <strong>Small</strong></p>
+      </article>
+      <article class="idea" data-status="Ready" data-size="Small">
+        <div class="idea-top">
+          <span class="idea-num" aria-hidden="true">THREE</span>
+          <span class="pill pill--ready">Ready</span>
+        </div>
+        <h3>A keyboard-only game</h3>
+        <p>A tiny game that runs on the arrow keys and the space bar. No mouse at all — and no canvas, just the DOM.</p>
+        <ul class="tags" aria-label="Skills needed"><li>events</li><li>state</li><li>CSS</li></ul>
+        <p class="idea-size">Size: <strong>Small</strong></p>
+      </article>
+      <article class="idea" data-status="Next" data-size="Medium">
+        <div class="idea-top">
+          <span class="idea-num" aria-hidden="true">FOUR</span>
+          <span class="pill pill--next">Next</span>
+        </div>
+        <h3>A reading tracker</h3>
+        <p>Log the books I finish, with a star rating and a small chart of pages per month. Data stays in localStorage.</p>
+        <ul class="tags" aria-label="Skills needed"><li>localStorage</li><li>arrays</li><li>SVG</li></ul>
+        <p class="idea-size">Size: <strong>Medium</strong></p>
+      </article>
+      <article class="idea" data-status="Next" data-size="Medium">
+        <div class="idea-top">
+          <span class="idea-num" aria-hidden="true">FIVE</span>
+          <span class="pill pill--next">Next</span>
+        </div>
+        <h3>A flashcard trainer</h3>
+        <p>Question, answer, flip. Spaced repetition kept simple: cards I get wrong come back sooner.</p>
+        <ul class="tags" aria-label="Skills needed"><li>objects</li><li>timers</li><li>storage</li></ul>
+        <p class="idea-size">Size: <strong>Medium</strong></p>
+      </article>
+      <article class="idea" data-status="Someday" data-size="Medium">
+        <div class="idea-top">
+          <span class="idea-num" aria-hidden="true">SIX</span>
+          <span class="pill pill--someday">Someday</span>
+        </div>
+        <h3>A plant-watering reminder</h3>
+        <p>A calendar of when each plant was last watered, with a quiet nudge when one is due.</p>
+        <ul class="tags" aria-label="Skills needed"><li>Date</li><li>forms</li><li>CSS</li></ul>
+        <p class="idea-size">Size: <strong>Medium</strong></p>
+      </article>
+      <article class="idea" data-status="Someday" data-size="Large">
+        <div class="idea-top">
+          <span class="idea-num" aria-hidden="true">SEVEN</span>
+          <span class="pill pill--someday">Someday</span>
+        </div>
+        <h3>A local bus timetable</h3>
+        <p>One route, one page: the next three departures from my stop, updating every minute.</p>
+        <ul class="tags" aria-label="Skills needed"><li>time zones</li><li>JSON</li><li>fetch()</li></ul>
+        <p class="idea-size">Size: <strong>Large</strong></p>
+      </article>
+      <article class="idea" data-status="Someday" data-size="Large">
+        <div class="idea-top">
+          <span class="idea-num" aria-hidden="true">EIGHT</span>
+          <span class="pill pill--someday">Someday</span>
+        </div>
+        <h3>A tiny static-site generator</h3>
+        <p>Write notes in Markdown, run one command, get HTML. The most ambitious idea on this page.</p>
+        <ul class="tags" aria-label="Skills needed"><li>Node.js</li><li>Markdown</li><li>build</li></ul>
+        <p class="idea-size">Size: <strong>Large</strong></p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="how-title">
+    <div class="section-head">
+      <h2 id="how-title">How I chose them</h2>
+      <p>A good next project is small enough to finish and strange enough to be interesting.
+        These are the four questions I used to rank the list.</p>
+    </div>
+    <ol class="steps">
+      <li><strong>Can I finish it in a weekend?</strong> If not, it goes to Someday.</li>
+      <li><strong>Does it teach me one thing properly?</strong> One new idea per project is enough.</li>
+      <li><strong>Would I use it afterwards?</strong> A tool I need is easier to finish than a demo.</li>
+      <li><strong>Is it small enough to show?</strong> If the first screen needs a paragraph to explain, it is too big.</li>
+    </ol>
+  </section>
+
+  <section class="section" aria-labelledby="next-title">
+    <div class="section-head">
+      <h2 id="next-title">What I would start with</h2>
+      <p>The tide clock. It needs a real API, real dates and a layout that survives a narrow phone screen — three things
+        the course covered and I have not used together yet.</p>
+    </div>
+    <a class="btn btn-primary" href="machine.html">See the machine instead</a>
+  </section>
+</main>
+
   <footer class="site-foot">
-    <div class="wrap">
-      <p><strong>Learning the Web</strong> — a course project for Web Technologies, 2026.</p>
+    <div class="wrap foot-grid">
+      <div>
+        <p class="foot-brand"><span class="brand-mark" aria-hidden="true">&lt;/&gt;</span> Learning the Web</p>
+        <p class="fine">A four-page log of learning HTML, CSS and JavaScript — written and built by Goodray, 2026.</p>
+      </div>
+      <nav aria-label="Footer">
+        <p class="foot-head">Pages</p>
+        <ul class="foot-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="quotes.html">Quotes</a></li>
+          <li><a href="project.html">Ideas</a></li>
+          <li><a href="machine.html">Machine</a></li>
+        </ul>
+      </nav>
+      <div>
+        <p class="foot-head">Built with</p>
+        <ul class="foot-links">
+          <li>HTML5 &amp; semantic markup</li>
+          <li>Modern CSS — Grid, Flexbox, custom properties</li>
+          <li>JavaScript, no framework, no build step</li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap foot-legal">
+      <p>Course project for Web Technologies · Hainan Bielefeld University of Applied Sciences</p>
+      <p><a href="https://github.com/Goodray111/my-site">Source on GitHub</a></p>
     </div>
   </footer>
+  
+  <script defer src="js/projects.js"></script>
 </body>
 </html>
