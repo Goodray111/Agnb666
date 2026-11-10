@@ -857,6 +857,32 @@ main { padding-block: var(--space-6) var(--space-7); }
   main { padding-block: var(--space-5) var(--space-6); }
 }
 
+/* 8b. Shared motion + back-to-top ----------------------------------------- */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .5s var(--ease), transform .5s var(--ease);
+}
+.js .reveal.is-revealed { opacity: 1; transform: none; }
+
+.to-top {
+  position: fixed;
+  right: 1.1rem;
+  bottom: 1.1rem;
+  z-index: 60;
+  font: inherit;
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: .55rem .9rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+.to-top:hover { border-color: var(--ink); }
+
 /* 9. Footer, motion, print ------------------------------------------------ */
 .site-foot {
   margin-top: var(--space-7);
