@@ -22,6 +22,7 @@
   <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
   <script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
   <link rel="preload" href="css/style.css" as="style">
+  <script>(function(){try{var t=localStorage.getItem("theme");if(t!=="dark"&&t!=="light"){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t);document.documentElement.style.colorScheme=t;}catch(e){}})();</script>
   <link rel="stylesheet" href="css/style.css">
   <script defer src="js/nav.js"></script>
 </head>
@@ -115,6 +116,13 @@
     </div>
     <ol class="log">
       <li>
+        <time datetime="2026-11-10">10 Nov 2026</time>
+        <div>
+          <h3>A dark theme that remembers</h3>
+          <p>One button in the navigation, a full set of dark tokens, and a choice that survives a reload.</p>
+        </div>
+      </li>
+      <li>
         <time datetime="2026-11-09">9 Nov 2026</time>
         <div>
           <h3>Notes page with a reading bar</h3>
@@ -202,5 +210,6 @@
     </div>
   </footer>
   <script defer src="js/main.js"></script>
+  <script defer src="js/theme.js"></script>
 </body>
 </html>
