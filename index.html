@@ -23,6 +23,7 @@
   <script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
   <link rel="preload" href="css/style.css" as="style">
   <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/nav.js"></script>
 </head>
 <body data-page="index">
   <a class="skip-link skip-link--static" href="#main">Skip to content</a>
@@ -100,3 +101,91 @@
     </div>
   </section>
 
+  <section class="section" aria-labelledby="recent-title">
+    <div class="section-head">
+      <h2 id="recent-title">Recently added</h2>
+      <p>The log is small and honest. These are the last three changes.</p>
+    </div>
+    <ol class="log">
+      <li>
+        <time datetime="2026-11-10">10 Nov 2026</time>
+        <div>
+          <h3>Final pass: phone, links, images</h3>
+          <p>Every link clicked, every image checked, the layout tested from 320&nbsp;px to a wide desktop.</p>
+        </div>
+      </li>
+      <li>
+        <time datetime="2026-11-09">9 Nov 2026</time>
+        <div>
+          <h3>Quotes, ideas and the machine</h3>
+          <p>Eighteen quotes with search and filters, eight project ideas, and the useless machine game.</p>
+        </div>
+      </li>
+      <li>
+        <time datetime="2026-11-08">8 Nov 2026</time>
+        <div>
+          <h3>Start: navigation and the design system</h3>
+          <p>One navigation for every page, colour and type tokens, and the first version of the home page.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="section" aria-labelledby="skills-title">
+    <div class="section-head">
+      <h2 id="skills-title">What this site practises</h2>
+      <p>Each page is an excuse to practise one part of the course.</p>
+    </div>
+    <div class="skills">
+      <div class="skill">
+        <h3>Structure</h3>
+        <p>Semantic landmarks, one <code>h1</code> per page, a heading order that never skips a level, and forms of lists that match their content.</p>
+      </div>
+      <div class="skill">
+        <h3>Layout</h3>
+        <p>Grid for page-level composition, Flexbox for components, <code>clamp()</code> for type that scales, and three breakpoints that matter.</p>
+      </div>
+      <div class="skill">
+        <h3>Behaviour</h3>
+        <p>DOM building, event delegation, <code>IntersectionObserver</code>, a random quote, and enough state for a game with a score.</p>
+      </div>
+      <div class="skill">
+        <h3>Care</h3>
+        <p>Focus styles that are visible, a skip link, reduced-motion support, alt text on every image, and colour contrast above 4.5:1.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+  <footer class="site-foot">
+    <div class="wrap foot-grid">
+      <div>
+        <p class="foot-brand"><span class="brand-mark" aria-hidden="true">&lt;/&gt;</span> Learning the Web</p>
+        <p class="fine">A four-page log of learning HTML, CSS and JavaScript — written and built by Goodray, 2026.</p>
+      </div>
+      <nav aria-label="Footer">
+        <p class="foot-head">Pages</p>
+        <ul class="foot-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="quotes.html">Quotes</a></li>
+          <li><a href="project.html">Ideas</a></li>
+          <li><a href="machine.html">Machine</a></li>
+        </ul>
+      </nav>
+      <div>
+        <p class="foot-head">Built with</p>
+        <ul class="foot-links">
+          <li>HTML5 &amp; semantic markup</li>
+          <li>Modern CSS — Grid, Flexbox, custom properties</li>
+          <li>JavaScript, no framework, no build step</li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap foot-legal">
+      <p>Course project for Web Technologies · Hainan Bielefeld University of Applied Sciences</p>
+      <p><a href="https://github.com/Goodray111/my-site">Source on GitHub</a></p>
+    </div>
+  </footer>
+  <script defer src="js/main.js"></script>
+</body>
+</html>
