@@ -27,7 +27,7 @@
       const dark = theme === 'dark';
       const nextPressed = String(dark);
       const nextLabel = dark ? 'Switch to the light theme' : 'Switch to the dark theme';
-      const nextIcon = dark ? '☀' : '☾';
+      const nextIcon = dark ? 'Light' : 'Dark';
 
       if (button.getAttribute('aria-pressed') !== nextPressed) {
         button.setAttribute('aria-pressed', nextPressed);
@@ -38,8 +38,8 @@
       if (button.textContent !== nextIcon) {
         button.textContent = nextIcon;
       }
-      if (button.title !== (dark ? 'Light theme' : 'Dark theme')) {
-        button.title = dark ? 'Light theme' : 'Dark theme';
+      if (button.title !== (dark ? 'Switch to the light theme' : 'Switch to the dark theme')) {
+        button.title = dark ? 'Switch to the light theme' : 'Switch to the dark theme';
       }
     });
     current = theme;
