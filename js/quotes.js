@@ -58,4 +58,25 @@
       }
     });
   }
+
+  /* The random quote reads all eighteen, not only the visible ones. */
+  function randomQuote() {
+    const pick = quotes[Math.floor(Math.random() * quotes.length)];
+    const text = pick.querySelector('blockquote p');
+    const author = pick.querySelector('cite');
+    if (!text || !author) return;
+
+    if (randomText) randomText.textContent = text.textContent.trim();
+    if (randomAuthor) randomAuthor.textContent = '— ' + author.textContent.trim();
+
+    /* Never repeat the same card twice in a row, if there is a choice. */
+    if (quotes.length > 1) {
+      pick.setAttribute('data-last', 'true');
+      quotes.filter((q) => q !== pick).forEach((q) => q.removeAttribute('data-last'));
+    }
+  }
+
+  if (randomBtn) {
+    randomBtn.addEventListener('click', randomQuote);
+  }
 })();
