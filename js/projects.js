@@ -93,8 +93,11 @@
   }
 
   /* --- dialog ------------------------------------------------------------ */
+  let opener = null;
+
   function openDialog(idea) {
     if (!dialog) return;
+    opener = document.activeElement;
     const num = idea.dataset.num;
     const title = idea.querySelector('h3');
     const desc = idea.querySelector('p');
@@ -124,8 +127,13 @@
 
     if (typeof dialog.showModal === 'function') {
       dialog.showModal();
+      /* Put focus on the close button, not on the backdrop. */
+      const close = dialog.querySelector('.idea-dialog-close button');
+      if (close) close.focus({ preventScroll: true });
     } else {
       dialog.setAttribute('open', '');
+      const close = dialog.querySelector('.idea-dialog-close button');
+      if (close) close.focus({ preventScroll: true });
     }
   }
 
@@ -133,6 +141,9 @@
     if (!dialog) return;
     if (typeof dialog.close === 'function' && dialog.open) dialog.close();
     else dialog.removeAttribute('open');
+    if (opener && typeof opener.focus === 'function') {
+      opener.focus({ preventScroll: true });
+    }
   }
 
   ideas.forEach((idea) => {

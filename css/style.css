@@ -194,6 +194,17 @@ a:hover { color: var(--accent); }
   outline-offset: 3px;
   border-radius: 4px;
 }
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+html[data-theme="dark"] :focus-visible { outline-color: #fdba74; }
 
 code, kbd {
   font-family: var(--font-mono);
@@ -1200,6 +1211,7 @@ main { padding-block: var(--space-6) var(--space-7); }
 }
 
 @media print {
+  .read-progress, .note-read, .to-top, .theme-toggle, .idea-more, .quote-fav { display: none !important; }
   body { background: #fff; }
   body::before, .site-nav, .site-foot, .random-quote, .tools, .game-controls, .skip-link { display: none !important; }
   a { color: #000; text-decoration: underline; }
